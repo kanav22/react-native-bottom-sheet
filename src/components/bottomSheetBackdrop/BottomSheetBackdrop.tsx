@@ -35,7 +35,10 @@ const BACKDROP_INDEX_EPSILON = 0.01;
 const shouldDisableBackdropTouchability = (
   index: number,
   disappearsOnIndex: number
-) => index <= disappearsOnIndex + BACKDROP_INDEX_EPSILON;
+) => {
+  'worklet';
+  return index <= disappearsOnIndex + BACKDROP_INDEX_EPSILON;
+};
 
 const BottomSheetBackdropComponent = ({
   animatedIndex,
